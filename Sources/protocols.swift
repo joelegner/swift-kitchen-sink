@@ -10,7 +10,6 @@ func protocolsDemo() {
     comparableDemo()
     divider()
     codableDemo()
-    divider()
 }
 
 /*
