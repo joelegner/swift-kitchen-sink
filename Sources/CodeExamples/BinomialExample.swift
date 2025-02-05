@@ -8,8 +8,7 @@ import Foundation
 
 struct BinomialExample: CodeExample {
     func run() {
-        print("\(#fileID) \(#function)")
-
+        print("\(#fileID)")
         do {
             let tree = Binomial(genus: "Pin", species: "oak")
             let jsonData = try JSONEncoder().encode(tree)

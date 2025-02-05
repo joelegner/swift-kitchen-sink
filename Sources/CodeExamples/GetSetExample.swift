@@ -7,9 +7,8 @@
 
 struct GetSetExample: CodeExample {
     func run() {
-        var positiveNumber: PositiveInt = PositiveInt(24)
-        
-        print("\(#fileID) \(#function)")
+        var positiveNumber: PositiveInt = PositiveInt(24)        
+        print("\(#fileID)")
         print(positiveNumber)
         positiveNumber.value = 7
         print(positiveNumber)

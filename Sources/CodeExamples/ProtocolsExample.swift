@@ -8,8 +8,7 @@ import Foundation
 
 struct ProtocolsExample: CodeExample {
     func run() {
-        print("\(#fileID) \(#function)")
-
+        print("\(#fileID)")
         /// A function that demonstrates the use of various Swift protocols.
         /// - This function prints dividers and calls individual demos for:
         ///   - `CustomStringConvertible`: Custom string representation of a class.

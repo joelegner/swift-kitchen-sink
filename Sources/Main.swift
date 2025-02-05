@@ -9,7 +9,8 @@ import Foundation
 struct App {
     static func main() {
         let examples: [CodeExample] = [GetSetExample(), BinomialExample(),
-            ConcurrencyExample(), ProtocolsExample(), PropObsExample()]
+            ConcurrencyExample(), ProtocolsExample(), PropObsExample(),
+                                       ExpressionMacroExamples()]
         
         /// The `map` method calls runCodeExample on each element in the examples array.
         /// We use `let _ =` so that the compiler knows we are ignoring the result. Normally `map`

@@ -8,8 +8,7 @@
 struct PropObsExample: CodeExample {
     func run() {
         var myPoint: MyPoint
-
-        print("\(#fileID) \(#function)")
+        print("\(#fileID)")
         myPoint = MyPoint(x: 24.0, y: 16.4)
         print(myPoint)
         myPoint.x = -17.6
