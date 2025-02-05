@@ -1,13 +1,29 @@
+import Foundation
+
+struct Binomial: Codable {
+    var genus: String
+    var species: String
+    var subspecies: String?
+}
+
+
 // The Swift Programming Language
 // https://docs.swift.org/swift-book
+import Foundation
+
+@main
 struct App {
     static func main() {
         var myPoint: MyPoint
         var positiveNumber: PositiveInt = PositiveInt(24)
         divider()
-        print("Swift KitchenSink")
-        print("https://github.com/joelegner/swift-kitchen-sink")
-        print("This command-line interface (CLI) program demonstrates Swift features.\nIts source code is released with GPL-3.0 license, and it is heavily documented.")
+        print("""
+Swift KitchenSink
+https://github.com/joelegner/swift-kitchen-sink
+
+This command-line interface (CLI) program demonstrates Swift features.
+Its source code is released with GPL-3.0 license, and it is heavily documented.
+""")
         divider()
         protocolsDemo()
         divider()
@@ -21,7 +37,14 @@ struct App {
         print(positiveNumber)
         positiveNumber.value = -18
         print(positiveNumber)
+        do {
+            let tree = Binomial(genus: "Pin", species: "oak")
+            let jsonData = try JSONEncoder().encode(tree)
+            if let jsonString = String(data: jsonData, encoding: .utf8) {
+                print(jsonString)  // Convert to a readable string and print
+            }        } catch {
+            print("JSONEncoder().encode(tree) failed: \(error)")
+        }
     }
 }
 
-App.main()
