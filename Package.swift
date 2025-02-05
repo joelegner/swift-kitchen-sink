@@ -1,20 +1,13 @@
 // swift-tools-version: 5.9
 // The swift-tools-version declares the minimum version of Swift required to build this package.
-
 import PackageDescription
 
 let package = Package(
     name: "KitchenSink",
     targets: [
-        // Defines the main executable target.
+        // Targets are the basic building blocks of a package, defining a module or a test suite.
+        // Targets can depend on other targets in this package and products from dependencies.
         .executableTarget(
-            name: "KitchenSink"
-        ),
-        // Defines a test target for unit tests.
-        // This test target depends on the "KitchenSink" target.
-            .testTarget(
-                name: "KitchenSinkTests",
-                dependencies: ["KitchenSink"]
-            ),
+            name: "KitchenSink"),
     ]
 )
