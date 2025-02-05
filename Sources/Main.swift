@@ -10,10 +10,12 @@ struct App {
     static func main() {
         let examples: [CodeExample] = [GetSetExample(), BinomialExample(),
             ConcurrencyExample(), ProtocolsExample(), PropObsExample()]
+        
+        /// The `map` method calls runCodeExample on each element in the examples array.
+        /// We use `let _ =` so that the compiler knows we are ignoring the result. Normally `map`
+        /// will return a new array with elements having been processed. Here the elements only have
+        /// their `run()` method called, so we do not care about a processed array.
         let _ = examples.map { runCodeExample($0) }
-//        for example in examples {
-//            example.run()
-//        }
     }
 }
 
