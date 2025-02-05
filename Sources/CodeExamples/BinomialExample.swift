@@ -8,7 +8,6 @@ import Foundation
 
 struct BinomialExample: CodeExample {
     func run() {
-        divider()
         print("\(#fileID) \(#function)")
 
         do {

@@ -8,7 +8,6 @@ import Foundation
 
 struct ProtocolsExample: CodeExample {
     func run() {
-        divider()
         print("\(#fileID) \(#function)")
 
         /// A function that demonstrates the use of various Swift protocols.

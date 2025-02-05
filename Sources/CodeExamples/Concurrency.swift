@@ -10,7 +10,6 @@ struct ConcurrencyExample: CodeExample {
     
     /// Run the example code 
     func run() {
-        divider()
         print("\(#fileID) \(#function)")
 
         print("Starting concurrent task...")

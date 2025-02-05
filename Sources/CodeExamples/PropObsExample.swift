@@ -9,7 +9,6 @@ struct PropObsExample: CodeExample {
     func run() {
         var myPoint: MyPoint
 
-        divider()
         print("\(#fileID) \(#function)")
         myPoint = MyPoint(x: 24.0, y: 16.4)
         print(myPoint)

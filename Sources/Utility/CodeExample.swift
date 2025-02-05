@@ -10,7 +10,6 @@ protocol CodeExample {
 }
 
 func runCodeExample<T: CodeExample>(_ example: T) {
-    print("\(#fileID) \(#function)")
     divider()
     example.run()
 }

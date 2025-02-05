@@ -10,9 +10,10 @@ struct App {
     static func main() {
         let examples: [CodeExample] = [GetSetExample(), BinomialExample(),
             ConcurrencyExample(), ProtocolsExample(), PropObsExample()]
-        for example in examples {
-            example.run()
-        }
+        let _ = examples.map { runCodeExample($0) }
+//        for example in examples {
+//            example.run()
+//        }
     }
 }
 
