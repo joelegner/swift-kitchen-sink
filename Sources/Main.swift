@@ -11,6 +11,14 @@ struct Binomial: Codable {
 // https://docs.swift.org/swift-book
 import Foundation
 
+protocol CodeExample {
+    func run()
+}
+
+func runCodeExample<T: CodeExample>(_ example: T) {
+    example.run()
+}
+
 @main
 struct App {
     static func main() {
@@ -45,6 +53,7 @@ Its source code is released with GPL-3.0 license, and it is heavily documented.
             }        } catch {
             print("JSONEncoder().encode(tree) failed: \(error)")
         }
+        runCodeExample(ConcurrencyExample())
     }
 }
 
