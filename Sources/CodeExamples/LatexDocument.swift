@@ -35,3 +35,12 @@ extension LatexDocument: CustomStringConvertible {
         return "\(header)\n\\begin{document}\n\(body)\n\\end{document}"
     }
 }
+
+func eq(_ latexEquation: String, inline: Bool = false) -> String
+{
+    return if inline {
+        "$ \(latexEquation) $"
+    } else {
+        "\\begin{equation}\n\(latexEquation)\n\\end{equation}"
+    }
+}

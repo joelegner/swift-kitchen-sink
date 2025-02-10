@@ -17,7 +17,8 @@ struct LatexDocumentExample: CodeExample {
         let document = LatexDocument(.article) {
             // Composition similar to SwiftUI views
             "Test content."
-            "This is a second paragraph."
+            "This is a second paragraph. " + eq("\\delta=5w \\ell^2/8", inline: true)
+            eq("e=mc^2")
         }
         print(document)
     }
