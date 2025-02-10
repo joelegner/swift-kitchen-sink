@@ -21,6 +21,19 @@ struct LatexDocumentExample: CodeExample {
             section("Second Section")
             "This is a second paragraph. " + eq("\\delta=5w \\ell^2/8", inline: true)
             subsection("Subsection of Second Section")
+            quote(
+            """
+            In physics, the mass-energy equivalence is stated 
+            by the equation $E=mc^2$, discovered in 1905 by Albert Einstein.
+            """
+            )
+            // Usage Example:
+            Quote {
+            """
+            In physics, the mass-energy equivalence is stated 
+            by the equation $E=mc^2$, discovered in 1905 by Albert Einstein.
+            """
+            }
             eq("e=mc^2")
         }
         print(document)

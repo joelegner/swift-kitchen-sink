@@ -65,3 +65,20 @@ func subsection(_ title: String) -> String {
 func subsubsection(_ title: String) -> String {
     return _section(kind: "subsubsection", title: title)
 }
+
+func quote(_ quoteText: String) -> String {
+    """
+    \\begin{quote}
+    \(quoteText)
+    \\end{quote}
+    """
+}
+
+func Quote(_ content: () -> String) -> String {
+    """
+    \\begin{quote}
+    \(content())
+    \\end{quote}
+    """
+}
+
