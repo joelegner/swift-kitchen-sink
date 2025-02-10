@@ -46,18 +46,22 @@ func eq(_ latexEquation: String, inline: Bool = false) -> String
     }
 }
 
+/// Helps section, subsection, and subsubsection
 private func _section(kind: String="section", title: String) -> String {
     return "\\\(kind){\(title)}"
 }
 
+/// Wrap a title in \section{ }
 func section(_ title: String) -> String {
     return _section(kind: "section", title: title)
 }
 
+/// Wrap a title in \subsection{ }
 func subsection(_ title: String) -> String {
     return _section(kind: "subsection", title: title)
 }
 
+/// Wrap a title in \subsubsection{ }
 func subsubsection(_ title: String) -> String {
     return _section(kind: "subsubsection", title: title)
 }
