@@ -16,8 +16,11 @@ struct LatexDocumentExample: CodeExample {
         /// Note the article type. It also supports .book and .report
         let document = LatexDocument(.article) {
             // Composition similar to SwiftUI views
+            section("First Section")
             "Test content."
+            section("Second Section")
             "This is a second paragraph. " + eq("\\delta=5w \\ell^2/8", inline: true)
+            subsection("Subsection of Second Section")
             eq("e=mc^2")
         }
         print(document)

@@ -30,17 +30,34 @@ struct LatexDocument {
 
 extension LatexDocument: CustomStringConvertible {
     var description: String {
-        let header = "\\documentclass{\(documentClass.rawValue)}"
+        let header = "\\documentclass{\(documentClass.rawValue)}\n"
         let body = content.joined(separator: "\n\n")
-        return "\(header)\n\\begin{document}\n\(body)\n\\end{document}"
+        return "\(header)\n\\begin{document}\n\n\(body)\n\\end{document}\n"
     }
 }
 
+// MARK: LaTeX formatting helper functions.
 func eq(_ latexEquation: String, inline: Bool = false) -> String
 {
     return if inline {
         "$ \(latexEquation) $"
     } else {
-        "\\begin{equation}\n\(latexEquation)\n\\end{equation}"
+        "\\begin{equation}\n\(latexEquation)\n\\end{equation}\n"
     }
+}
+
+private func _section(kind: String="section", title: String) -> String {
+    return "\\\(kind){\(title)}"
+}
+
+func section(_ title: String) -> String {
+    return _section(kind: "section", title: title)
+}
+
+func subsection(_ title: String) -> String {
+    return _section(kind: "subsection", title: title)
+}
+
+func subsubsection(_ title: String) -> String {
+    return _section(kind: "subsubsection", title: title)
 }
