@@ -7,6 +7,7 @@ class Node: Identifiable, CustomStringConvertible {
     private var minutes: Int = 0
     private let indent: String = "    "
     var parent: Node?
+    var tree: WeightedTree?
     var children: [Node]
 
     init(_ text: String) {
@@ -26,12 +27,16 @@ class Node: Identifiable, CustomStringConvertible {
         children.append(child)
     }
         
-    func totalWeight() -> Int {
-        return weight + children.reduce(0) { $0 + $1.totalWeight() }
+    func totalChildrenWeight() -> Int {
+        var weight: Int = 0
+        for child in children {
+            weight += child.weight
+        }
+        return weight
     }
     
     var description: String {
-        var returnValue: String = "\(self.text): Weight=\(self.weight), Depth=\(self.depth)\n"
+    var returnValue: String = "\(self.text): Weight=\(self.weight), Depth=\(self.depth), Value=\(String(format: "%.0f", self.value))\n"
         for child: Node in children {
             returnValue += String(repeating: indent, count: child.depth) +  "\(child.description)"            
         }
@@ -39,7 +44,7 @@ class Node: Identifiable, CustomStringConvertible {
     }
 
     var isRoot: Bool {
-        return parent == nil
+        return parent == nil && tree != nil
     }
 
     var depth: Int {
@@ -55,6 +60,22 @@ class Node: Identifiable, CustomStringConvertible {
             return self
         } else {
             return parent!.rootNode
+        }
+    }
+
+    var minutesFromRoot: Double {
+        if self.isRoot {
+            return 0.0
+        } else {
+            return Double(self.depth) * Node.minutesInHour + parent!.minutesFromRoot
+        }
+    }
+
+    var value: Double {
+        if self.isRoot {
+            return tree!.value
+        } else {
+            return parent!.value / Double(parent!.totalChildrenWeight()) * Double(weight)
         }
     }
 }

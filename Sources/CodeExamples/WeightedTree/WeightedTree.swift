@@ -16,6 +16,9 @@ class WeightedTree {
 
     private func makeRootNode() -> Node {
         let rootNode = Node("Root Node", weight: 1)
+        rootNode.tree = self
+        self.rootNode = rootNode
+        rootNode.parent = nil
         assert(rootNode.isRoot)
         return rootNode
     }
