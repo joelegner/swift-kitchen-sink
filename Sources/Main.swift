@@ -10,7 +10,8 @@ struct App {
     static func main() {
         let examples: [CodeExample] = [GetSetExample(), BinomialExample(),
                                        ConcurrencyExample(), ProtocolsExample(), PropObsExample(),
-                                       ExpressionMacroExamples(), NSExpressionExample(), LatexDocumentExample()]
+                                       ExpressionMacroExamples(), NSExpressionExample(), LatexDocumentExample(),
+                                       WeightedTreeExample()]
         
         /// The `map` method calls runCodeExample on each element in the examples array.
         /// We use `let _ =` so that the compiler knows we are ignoring the result. Normally `map`
