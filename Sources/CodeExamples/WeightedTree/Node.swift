@@ -28,6 +28,12 @@ class Node: Identifiable, CustomStringConvertible {
         return child
     }
 
+    func addChildren(_ children: [Node]) {
+        for child in children {
+            _ = addChild(child)
+        }
+    }   
+
     func totalChildrenWeight() -> Int {
         var weight: Int = 0
         for child in children {
@@ -40,13 +46,14 @@ class Node: Identifiable, CustomStringConvertible {
         if let boundParent = parent {
             return boundParent.totalChildrenWeight()
         } else {
+            assert(self.isRoot)
             return self.weight
         }
     }
     
     var description: String {
-        let valueString: String = "\(String(format: "%.0f", self.value))/\(String(format: "%.2f", self.value/Node.minutesInHour))"
-        var returnValue: String = "\(self.text): Weight=\(self.weight)/\(self.totalSiblingWeight), Depth=\(self.depth), Value=\(valueString)\n"
+        let valueString: String = "\(String(format: "%.0fmin", self.value))/\(String(format: "%.2fh", self.value/Node.minutesInHour))"
+        var returnValue: String = "\(self.text) (\(self.weight)/\(self.totalSiblingWeight), \(valueString))\n"
         for child: Node in children {
             returnValue += String(repeating: indent, count: child.depth) +  "\(child.description)"            
         }
