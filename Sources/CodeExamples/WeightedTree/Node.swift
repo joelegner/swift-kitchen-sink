@@ -35,10 +35,18 @@ class Node: Identifiable, CustomStringConvertible {
         }
         return weight
     }
+
+    var totalSiblingWeight: Int {
+        if let boundParent = parent {
+            return boundParent.totalChildrenWeight()
+        } else {
+            return self.weight
+        }
+    }
     
     var description: String {
         let valueString: String = "\(String(format: "%.0f", self.value))/\(String(format: "%.2f", self.value/Node.minutesInHour))"
-        var returnValue: String = "\(self.text): Weight=\(self.weight), Depth=\(self.depth), Value=\(valueString)\n"
+        var returnValue: String = "\(self.text): Weight=\(self.weight)/\(self.totalSiblingWeight), Depth=\(self.depth), Value=\(valueString)\n"
         for child: Node in children {
             returnValue += String(repeating: indent, count: child.depth) +  "\(child.description)"            
         }
