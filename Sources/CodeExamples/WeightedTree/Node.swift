@@ -22,11 +22,12 @@ class Node: Identifiable, CustomStringConvertible {
         self.children = []
     }
     
-    func addChild(_ child: Node) {
+    func addChild(_ child: Node) -> Node {
         child.parent = self
         children.append(child)
+        return child
     }
-        
+
     func totalChildrenWeight() -> Int {
         var weight: Int = 0
         for child in children {
@@ -36,7 +37,7 @@ class Node: Identifiable, CustomStringConvertible {
     }
     
     var description: String {
-    var returnValue: String = "\(self.text): Weight=\(self.weight), Depth=\(self.depth), Value=\(String(format: "%.0f", self.value))\n"
+        var returnValue: String = "\(self.text): Weight=\(self.weight), Depth=\(self.depth), Value=\(String(format: "%.0f", self.value))\n"
         for child: Node in children {
             returnValue += String(repeating: indent, count: child.depth) +  "\(child.description)"            
         }

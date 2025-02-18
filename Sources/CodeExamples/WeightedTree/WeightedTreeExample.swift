@@ -8,17 +8,14 @@ import Foundation
 
 struct WeightedTreeExample: CodeExample {
     func run() {
-        let tree: WeightedTree = WeightedTree()
-        Node.rootValue = 24.0*60.0
+        let tree: WeightedTree = WeightedTree("Live life", value: 24*60)
         print(#fileID, #function)
-        tree.root.addChild(Node("Child 1", weight: 2))
-        tree.root.addChild(Node("Child 2", weight: 3))
-        tree.root.children[0].addChild(Node("Grandchild 1", weight: 4))
-        tree.root.children[0].addChild(Node("Grandchild 2", weight: 5))
-        tree.root.children[1].addChild(Node("Grandchild 3", weight: 6))
-        tree.root.children[1].addChild(Node("Grandchild 4", weight: 7))
+        _ = tree.root.addChild(Node("Be awake", weight: 2))
+        _ = tree.root.addChild(Node("Sleep", weight: 1))
+        _ = tree.root.children[0].addChild(Node("Grandchild 1", weight: 4))
+        _ = tree.root.children[0].addChild(Node("Grandchild 2", weight: 5))
+        _ = tree.root.children[1].addChild(Node("Grandchild 3", weight: 6))
+        _ = tree.root.children[1].addChild(Node("Grandchild 4", weight: 7))
         print(tree.root)
-        print("Let's try getting the root node.")
-        print("Root node: \(tree.root.children[0].rootNode.text)")
     }
 }
