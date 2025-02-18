@@ -37,7 +37,8 @@ class Node: Identifiable, CustomStringConvertible {
     }
     
     var description: String {
-        var returnValue: String = "\(self.text): Weight=\(self.weight), Depth=\(self.depth), Value=\(String(format: "%.0f", self.value))\n"
+        let valueString: String = "\(String(format: "%.0f", self.value))/\(String(format: "%.2f", self.value/Node.minutesInHour))"
+        var returnValue: String = "\(self.text): Weight=\(self.weight), Depth=\(self.depth), Value=\(valueString)\n"
         for child: Node in children {
             returnValue += String(repeating: indent, count: child.depth) +  "\(child.description)"            
         }
