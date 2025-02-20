@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "swiftlib",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/joelegner/SwiftLib",
+      "state" : {
+        "revision" : "e4c39e7c5e8dc19d92cc6460da1a77ab38dca9c7",
+        "version" : "0.0.1-alpha"
+      }
+    }
+  ],
+  "version" : 2
+}
