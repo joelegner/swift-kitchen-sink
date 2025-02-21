@@ -17,7 +17,8 @@ struct App {
             NSExpressionExample(), 
             PropObsExample(),
             ProtocolsExample(), 
-            WeightedTreeExample()
+            WeightedTreeExample(),
+            InitializerExample()
         ]
         
         /// The `map` method calls runCodeExample on each element in the examples array.
